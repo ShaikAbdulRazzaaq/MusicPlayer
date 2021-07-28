@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private val activityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    lateinit var list: List<Songs>
-    lateinit var playlistAdapter: PlaylistAdapter
+    private lateinit var list: List<Songs>
+    private lateinit var playlistAdapter: PlaylistAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
