@@ -1,4 +1,4 @@
-package com.projects.musicplayer
+package com.projects.musicplayer.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.projects.musicplayer.databinding.MusicListItemBinding
+import com.projects.musicplayer.ui.Songs
 
 class PlaylistAdapter : RecyclerView.Adapter<PlaylistAdapter.ViewHolderClass>() {
     class ViewHolderClass(val musicListItemBinding: MusicListItemBinding) :

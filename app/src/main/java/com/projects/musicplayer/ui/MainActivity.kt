@@ -1,4 +1,4 @@
-package com.projects.musicplayer
+package com.projects.musicplayer.ui
 
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.projects.musicplayer.adapters.PlaylistAdapter
 import com.projects.musicplayer.databinding.ActivityMainBinding
 
 
@@ -88,6 +89,7 @@ moveToFirst() function returns the first row of the results*/
                 }
             val songData = songCursor.getColumnIndex(MediaStore.Audio.Media.DATA)
             val dateIndex = songCursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED)
+
 /*moveToNext() returns the next row of the results. It returns null if there is no
 row after the current row*/
             while (songCursor.moveToNext()) {
