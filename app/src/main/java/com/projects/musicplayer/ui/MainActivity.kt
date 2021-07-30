@@ -9,16 +9,23 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.request.DefaultRequestOptions
 import com.projects.musicplayer.adapters.PlaylistAdapter
 import com.projects.musicplayer.databinding.ActivityMainBinding
+import com.projects.musicplayer.utils.Constants
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val activityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
     private lateinit var list: List<Songs>
     private lateinit var playlistAdapter: PlaylistAdapter
+
+    @Inject
+    lateinit var imageLoader: DefaultRequestOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                231
+                Constants.READ_STORAGE_PERMISSION
             )
         }
     }
@@ -51,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 231) {
+        if (requestCode == Constants.READ_STORAGE_PERMISSION) {
             if (grantResults.isNotEmpty())
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.e(TAG, "onRequestPermissionsResult: Permissions granted")

@@ -1,4 +1,4 @@
-package com.projects.musicplayer
+package com.projects.musicplayer.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
